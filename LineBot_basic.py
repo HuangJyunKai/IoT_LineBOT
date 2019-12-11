@@ -68,7 +68,7 @@ def handle_message(event):
     #Line_Temp=Line_Temp.replace("]","")
     #Line_Temp=Line_Temp.replace("'","")
 
-    #line_bot_api.reply_message(event.reply_token,TextSendMessage(text='hello')))   # Reply API example
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text='hello'))   # Reply API example
     
     userId = event.source.user_id
     if not userId in user_id_set:
@@ -76,7 +76,7 @@ def handle_message(event):
         saveUserId(userId)
 
 
-def Print(user_id_set):
+def Print(arg):
     while True:
         try:
             Line_Temp=DAN.pull('MSG-O')
@@ -88,7 +88,7 @@ def Print(user_id_set):
             for userId in user_id_set:
                 if Line_Temp != 'None':
                     line_bot_api.push_message(userId, TextSendMessage(text=Line_Temp))  # Push API example
-            time.sleep(5)
+            time.sleep(10)
         except Exception as e:
             print(e)
             if str(e).find('mac_addr not found:') != -1:
@@ -119,9 +119,10 @@ if __name__ == "__main__":
     except Exception as e:
         print(e)
     ##Thread
-    t = threading.Thread(target=Print(user_id_set))
+    t = threading.Thread(target=Print,args=(user_id_set,))
     t.daemon = True     # this ensures thread ends when main process ends
     t.start()
+
     app.run('127.0.0.1', port=32768, threaded=True, use_reloader=False)
 
     
