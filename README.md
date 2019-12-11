@@ -1,10 +1,5 @@
 # Dummy_Device
 # Before using this example, please successfully install the python module 'requests'.
 
-This is a DA example with ControlChannels、SSL connection、Device_Auth.
-
-Changes:
-1. Separate sessions into  data and control sessions:
-    This version adds two sessions, data and control sessions. The data session is used for data transmission (reg/push/pull/dereg). The control session is used for push/pull I/O control channels. (In the earier version, both data and control transmission uses the same session, and causes some issues.)
-
-2. The control channel will create only one thread.
+![image](https://github.com/HuangJyunKai/IoT_LineBOT/blob/master/%E6%88%AA%E5%9C%96%202019-12-11%20%E4%B8%8B%E5%8D%8810.35.23.png)
+![image](https://github.com/HuangJyunKai/IoT_LineBOT/blob/master/%E6%88%AA%E5%9C%96%202019-12-11%20%E4%B8%8B%E5%8D%8810.35.32.png)
