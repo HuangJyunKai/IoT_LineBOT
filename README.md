@@ -1,5 +1,6 @@
 # Dummy_Device
 # Before using this example, please successfully install the python module 'requests'.
+0.Run ./ngrok http 32768
 
 1.Run LineBot_basic.py
 
